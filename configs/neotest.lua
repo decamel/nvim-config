@@ -24,6 +24,10 @@ require("neotest").setup({
       },
       runner = "unittest",
     }),
+    require('neotest-jest')({
+      jest_test_discovery = true,
+      jestConfigFile = "jest.config.ts",
+    }),
     require("neotest-go")({
       recursive_run = true,
       experimental = {

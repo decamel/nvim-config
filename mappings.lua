@@ -139,6 +139,10 @@ M.comment = {
       "<cmd> CBccline15 <CR>",
       "Create line comment for this line"
     },
+    ['<leader>cb'] = {
+      "<cmd> CBccbox10 <CR>",
+      "Create block comment for this line"
+    },
     ['<leader>ct'] = {
       "<cmd> CBccline <CR>",
       "Create line header comment for this line",
