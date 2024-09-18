@@ -108,6 +108,30 @@ M.bookmarks = {
 
 }
 
+M.git_conflict = {
+  n = {
+    ['<leader>gql'] = {
+      "<cmd> GitConflictListQf <CR>",
+      "Open Git Conflicts quick fix list"
+    },
+    ['<leader>gab'] = {
+      "<cmd> GitConflictChooseBoth <CR>",
+      "Git Conflict: Accept both"
+    },
+    ['<leader>gat'] = {
+      "<cmd> GitConflictChooseTheirs <CR>",
+      "Git Conflict: Accept theirs"
+    },
+    ['<leader>gao'] = {
+      "<cmd> GitConflictChooseOurs <CR>",
+      "Git Conflict: Accept ours"
+    },
+    ['<leader>ggn'] = {
+      "<cmd> GitConflictNextConflict <CR>"
+    }
+  }
+}
+
 M.comment = {
   plugin = true,
   n = {

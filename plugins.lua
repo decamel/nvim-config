@@ -7,6 +7,16 @@ local plugins = {
   --   end
   -- },
   {
+    "akinsho/git-conflict.nvim",
+    lazy = false,
+    version = "*",
+    config = true,
+    opts = {
+      default_mapping = false,
+      disable_diagnostics = false,
+    }
+  },
+  {
     "LintaoAmons/bookmarks.nvim",
     lazy = false,
     dependencies = {
@@ -66,19 +76,19 @@ local plugins = {
       require("core.utils").load_mappings("dap")
     end
   },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
-    config = function(_, _)
-      local path = "python3"
-      require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
-    end
-  },
+  -- {
+  --   "mfussenegger/nvim-dap-python",
+  --   ft = "python",
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap",
+  --     "rcarriga/nvim-dap-ui",
+  --   },
+  --   config = function(_, _)
+  --     local path = "python3"
+  --     require("dap-python").setup(path)
+  --     require("core.utils").load_mappings("dap_python")
+  --   end
+  -- },
   {
     "leoluz/nvim-dap-go",
     ft = "go",
@@ -144,11 +154,11 @@ local plugins = {
       require "custom.configs.neotest"
     end,
     dependencies = {
+      "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-go",
-      "nvim-neotest/nvim-nio",
-      "alfaix/neotest-gtest",
       "nvim-neotest/neotest-plenary",
+      "alfaix/neotest-gtest",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
