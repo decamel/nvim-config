@@ -3,6 +3,7 @@ local on_attach = base.on_attach
 local capabilities = base.capabilities
 local util = require "lspconfig/util"
 
+---@diagnostic disable-next-line: different-requires
 local lspconfig = require("lspconfig")
 
 local function organize_imports()
@@ -81,6 +82,22 @@ lspconfig.eslint.setup {
   capabilities = capabilities,
 }
 
+-- ------------------------------------ CSS ---------------------------------
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+          { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+        },
+      },
+    },
+  },
+})
+
 -- ----------------------------------- Golang -----------------------------------
 
 lspconfig.gopls.setup {
@@ -98,4 +115,10 @@ lspconfig.gopls.setup {
       }
     }
   }
+}
+
+-- ----------------------------------- Prisma -----------------------------------
+lspconfig.prismals.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }

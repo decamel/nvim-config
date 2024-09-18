@@ -146,6 +146,7 @@ local plugins = {
     dependencies = {
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-jest",
       "nvim-neotest/nvim-nio",
       "alfaix/neotest-gtest",
       "nvim-neotest/neotest-plenary",
@@ -185,11 +186,25 @@ local plugins = {
     }
   },
   {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         -- Lua
         "lua-language-server",
+        -- CSS
+        "tailwindcss-language-server",
         -- JS/TS
         "typescript-language-server",
         "eslint-lsp",
@@ -210,8 +225,10 @@ local plugins = {
         "pyright",
         -- GO Lang
         "gopls",
+        -- Prisma
+        "prisma-language-server"
       }
     }
-  },
+  }
 }
 return plugins
